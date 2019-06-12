@@ -1,10 +1,10 @@
-class Post
-  attr_accessor :title, :author
+class Author
+  attr_accessor :name
 
   @@all = []
 
-  def initialize(title)
-    @title = title
+  def initialize(name)
+    @name = name
     @@all << self
   end
 
@@ -12,7 +12,20 @@ class Post
     @@all
   end
 
-  def author_name
-    author.name if author
+  def add_post(post)
+    post.author = self
+  end
+
+  def add_post_by_title(title)
+    post = Post.new(title)
+    post.author = self
+  end
+
+  def posts
+    Post.all.select {|post| post.author == self}
+  end
+
+  def self.post_count
+    Post.all.count
   end
 end
