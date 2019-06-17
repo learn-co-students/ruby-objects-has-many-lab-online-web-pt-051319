@@ -22,7 +22,6 @@ class Author
         post = Post.new(post)
         @posts << post
         posts.each {|name| post.author = self}
-        binding.pry
     end
 
     def self.post_count
