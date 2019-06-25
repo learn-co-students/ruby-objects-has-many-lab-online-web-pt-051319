@@ -12,7 +12,7 @@ class Post
       if author
         @author = author.name
       else
-        author != @artist
+        nil 
       end
   end
 
